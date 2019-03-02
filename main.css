@@ -141,5 +141,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .userInfo {
     text-align: right;
+    color: rgb(91, 102, 102);
+}
+
+.clickOptions:hover {
     color: darkslategray;
+    text-decoration: underline;
 }
