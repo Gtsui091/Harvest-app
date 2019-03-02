@@ -104,3 +104,42 @@ h1, h2, h3, h4, h5, h6 {
     left: 15px;
     border-radius: 15px;
 }
+
+#profilePicture {
+    height: 180px;
+    width: 180px;
+    border-radius: 30%;
+    position: relative;
+    top: 40px;
+    left: 38%;
+}
+
+#profileName {
+    position: relative;
+    top: 45px;
+    left: 40%;
+}
+
+#optionsSection {
+    width: 600px;
+    height: 450px;
+    position: absolute;
+    top: 380px;
+    left: 515px;
+}
+
+.options {
+    background-color: lightgray;
+    width: 650px;
+    height: 50px;
+    position: relative;
+    border: solid 0.5px white;
+    text-align: inherit;
+    padding: 8px;
+    
+}
+
+.userInfo {
+    text-align: right;
+    color: darkslategray;
+}
