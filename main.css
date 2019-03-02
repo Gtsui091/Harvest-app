@@ -91,7 +91,16 @@ h1, h2, h3, h4, h5, h6 {
     height: 225px;
     padding: 2px;
     margin: 27px 15px ;
-    background-color: gray;
-    border: 5px solid gray;
+    background-color: lightgray;
+    border: 5px solid lightgray;
+    border-radius: 15px;
+}
+
+.itemPicture {
+    width: 185px;
+    height: 150px;
+    position: relative;
+    top: 10px;
+    left: 15px;
     border-radius: 15px;
 }
