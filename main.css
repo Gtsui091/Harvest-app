@@ -177,3 +177,47 @@ nav > * {
     left: 15px;
     border-radius: 15px;
 }
+
+#profilePicture {
+    height: 180px;
+    width: 180px;
+    border-radius: 30%;
+    position: relative;
+    top: 40px;
+    left: 38%;
+}
+
+#profileName {
+    position: relative;
+    top: 45px;
+    left: 40%;
+}
+
+#optionsSection {
+    width: 600px;
+    height: 450px;
+    position: absolute;
+    top: 380px;
+    left: 515px;
+}
+
+.options {
+    background-color: lightgray;
+    width: 650px;
+    height: 50px;
+    position: relative;
+    border: solid 0.5px white;
+    text-align: inherit;
+    padding: 8px;
+    
+}
+
+.userInfo {
+    text-align: right;
+    color: rgb(91, 102, 102);
+}
+
+.clickOptions:hover {
+    color: darkslategray;
+    text-decoration: underline;
+}
