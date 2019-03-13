@@ -11,9 +11,9 @@
         <div class="container space-between">
             <a id="logo" href="index.html">Produce for Barter</a>
             <nav>
-                <a class="menuItems" href="#">Add Listing</a>
-                <a class="menuItems" href="#">Requests</a>
-                <a href="#">
+                <a class="menuItems" href="#" onclick="displayAddListing()">Add Listing</a>
+                <a class="menuItems" href="request.html">Requests</a>
+                <a href="profile.html">
                         <img id="profile" src="images/profile_placeholder.png" >
                     </a>
             </nav>
@@ -31,36 +31,62 @@
             </div>
             <div id="optionsSection">
                 <div class="options" id="name">
-                    <p class="clickOptions">Name</p>
+                    <p >Name</p>
                     <p class="userInfo">George Tai</p>
                 </div>
                 <div class="options" id="email">
-                    <p class="clickOptions">Email</p>
+                    <p>Email</p>
                     <p class="userInfo" >georgetai.gardens@gmail.com</p>
                 </div>
                 <div class="options" id="phoneNumber">
-                    <p class="clickOptions">Phone Number</p>
+                    <p>Phone Number</p>
                     <p class="userInfo" >778-564-8612</p>
                 </div>
                 <div class="options" id="address">
-                    <p class="clickOptions">Address</p>
+                    <p>Address</p>
                     <p class="userInfo" >4869 Templeton Street, Vancouver</p>
                 </div>
                 <div class="options" id="myListings">
-                    <p class="clickOptions">My Listings</p>
+                    <a class="clickOptions" href="#">My Listings</a>
                 </div>
                 <div class="options" id="faqs">
-                    <p class="clickOptions">FAQs</p>
+                    <a class="clickOptions" href="#">FAQs</a>
                 </div>
                 <div class="options" id="feedback">
-                    <p class="clickOptions">Feedback</p>
+                    <a class="clickOptions" href="#">Feedback</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <div class="wrapper">
-
+    <!-- ADD LISTING -->
+    <div id="add-listing">
+        <div class="modal">
+                <span class='close' onclick="closeAddListing()">x</span>
+            <h3 id="addListingTitle">Add Listing</h3>
+            <br>
+            <img id="addListingPicture" src="images/insert_picture.png">
+            <input type="file" name="image">
+            <br>
+            <input type="text" placeholder="Name">
+            <br>
+            <select name="city">
+                <option value="Vancouver">Vancouver</option>
+                <option value="Toronto">Toronto</option>
+                <option value="Montreal">Montreal</option>
+            </select>
+            <br>
+            <select name="type">
+                    <option value="Vegetable">Vegetable</option>
+                    <option value="Fruit">Fruit</option>
+            </select>
+            <br>
+            <input type="number" name="weight" placeholder="0 lb">
+            <br>
+            <input type="button" value="Submit">
+        </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -9,9 +9,12 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
+// Add Listing Modal
 function displayAddListing() {
     document.getElementById("add-listing").style.display = "flex";
+}
+function closeAddListing() {
+    document.getElementById("add-listing").style.display = "none";
 }
 
 // Outgoing Trade Request Modal

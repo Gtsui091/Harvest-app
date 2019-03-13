@@ -12,9 +12,9 @@
             <a id="logo" href="index.html">Produce for Barter</a>
             <nav>
                 <a class="menuItems" href="index.html">Browse</a>
-                <a class="menuItems" href="#">Add Listing</a>
-                <a href="#">
-                        <img id="profile" src="images/profile_placeholder.png" >
+                <a class="menuItems" href="#"onclick="displayAddListing()">Add Listing</a>
+                <a href="profile.html">
+                        <img id="profile" src="images/profile_placeholder.png">
                     </a>
             </nav>
 
@@ -114,7 +114,33 @@
             <button class="request-decline-button">Decline</button>
         </div>
     </div>
-
+    <!-- ADD LISTING -->
+    <div id="add-listing">
+            <div class="modal">
+                    <span class='close' onclick="closeAddListing()">x</span>
+                <h3 id="addListingTitle">Add Listing</h3>
+                <br>
+                <img id="addListingPicture" src="images/insert_picture.png">
+                <input type="file" name="image">
+                <br>
+                <input type="text" placeholder="Name">
+                <br>
+                <select name="city">
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Montreal">Montreal</option>
+                </select>
+                <br>
+                <select name="type">
+                        <option value="Vegetable">Vegetable</option>
+                        <option value="Fruit">Fruit</option>
+                </select>
+                <br>
+                <input type="number" name="weight" placeholder="0 lb">
+                <br>
+                <input type="button" value="Submit">
+            </div>
+        </div>
     <div class="wrapper">
 
     </div>
