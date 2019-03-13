@@ -14,8 +14,25 @@ function displayAddListing() {
     document.getElementById("add-listing").style.display = "flex";
 }
 
+// Outgoing Trade Request Modal
+function displayOutgoingListing() {
 
+    document.getElementById("outgoing-listing").style.display = "flex";
+}
 
+function closeOutgoingListing() {
+    document.getElementById("outgoing-listing").style.display = "none";
+}
+
+// Incoming Trade Request Modal
+function displayIncomingListing() {
+
+    document.getElementById("incoming-listing").style.display = "flex";
+}
+
+function closeIncomingListing() {
+    document.getElementById("incoming-listing").style.display = "none";
+}
 
 //let dbRef = firebase.database().ref().child("message");
 //dbRef.on("value", function(snap) {
