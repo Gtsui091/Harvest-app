@@ -196,6 +196,12 @@ nav > * {
     border-radius: 15px;
 }
 
+/* PROFILE */
+#myProfile {
+    position: relative;
+    top: 40px;
+    left: 32%;
+}
 #profilePicture {
     height: 180px;
     width: 180px;
