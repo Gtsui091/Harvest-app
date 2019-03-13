@@ -27,11 +27,11 @@ function closeOutgoingListing() {
 // Incoming Trade Request Modal
 function displayIncomingListing() {
 
-    document.getElementById("outgoing-listing").style.display = "flex";
+    document.getElementById("incoming-listing").style.display = "flex";
 }
 
 function closeIncomingListing() {
-    document.getElementById("outgoing-listing").style.display = "none";
+    document.getElementById("incoming-listing").style.display = "none";
 }
 
 //let dbRef = firebase.database().ref().child("message");
