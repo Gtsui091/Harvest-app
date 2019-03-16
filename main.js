@@ -15,7 +15,7 @@ function getRequesterName(user) {
     // var dbRef = firebase.database().ref('/Requests/' + user).once('value').then(function(snapshot) {
     //     let requester = (snapshot.val() && snapshot.val().requester) || 'requester';
     var out = document.getElementById("requester-name")
-    var dbRef = firebase.database().ref('/Requests/' + user).child('requester');
+    var dbRef = firebase.database().ref('/Requests/' + user + '/0/').child('requester');
     dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
 
 };
