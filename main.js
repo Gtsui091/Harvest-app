@@ -76,3 +76,87 @@ let db_users = firebase.database().ref("users").set({
     },
 });
 */
+
+// let dbIncomingRequests = firebase.database().ref("incomingRequests").set({
+//     0: {
+//         user: "Billy123",
+//         requester: "John567",
+//         item: "Potatoes",
+//         offeredItem:"Carrots",
+//         offeredItemDescription: "Chatenay Carrots",
+//         quantity: 10,
+//         quantityOffered: 10,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Hi, can I have potatoes for carrots?"
+//     },
+
+//     1: {
+//         user: "Mary565",
+//         requester: "Randy214",
+//         item: "Tomatoes",
+//         offeredItem:"Apples",
+//         offeredItemDescription: "Granny Smith Apples",
+//         quantity: 7,
+//         quantityOffered: 9,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Would you like to trade your tomatoes for my apples?"
+//     },
+// });
+
+// let dbOutgoingRequests = firebase.database().ref("outgoingRequests").set({
+//     0: {
+//         user: "John567",
+//         lister: "Billy123",
+//         item: "Potatoes",
+//         offeredItem:"Carrots",
+//         offeredItemDescription: "Chatenay Carrots",
+//         quantity: 10,
+//         quantityOffered: 10,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Hi, can I have potatoes for carrots?"
+//     },
+
+//     1: {
+//         user: "Randy214",
+//         requester: "Mary565",
+//         item: "Tomatoes",
+//         offeredItem:"Apples",
+//         offeredItemDescription: "Granny Smith Apples",
+//         quantity: 7,
+//         quantityOffered: 9,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Would you like to trade your tomatoes for my apples?"
+//     },
+// });
+
+let dbRequests = firebase.database().ref("Requests").set({
+    0: {
+        lister: "Billy123",
+        requester: "John567",
+        item: "Potatoes",
+        offeredItem:"Carrots",
+        offeredItemDescription: "Chatenay Carrots",
+        quantity: 10,
+        quantityOffered: 10,
+        itemImage: "url",
+        offeredItemImage: "url",
+        message: "Hi, can I have potatoes for carrots?"
+    },
+
+    1: {
+        lister: "Mary565",
+        requester: "Randy214",
+        item: "Tomatoes",
+        offeredItem:"Apples",
+        offeredItemDescription: "Granny Smith Apples",
+        quantity: 7,
+        quantityOffered: 9,
+        itemImage: "url",
+        offeredItemImage: "url",
+        message: "Would you like to trade your tomatoes for my apples?"
+    },
+});
