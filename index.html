@@ -16,7 +16,7 @@
                 <a href="#">Filter</a>
                 <a href="#">Log in</a>
                 <a href="#" onclick="displayAddListing()" >Add Listing</a>
-                <div id="profile-picture"></div>
+                <div id="profile-picture" ></div>
             </nav>
         </div>
     </header>
@@ -95,23 +95,31 @@
 
     <!-- ADD LISTING -->
     <div id="add-listing">
-        <div class="modal">
-            <h3>Add Listing</h3>
-            <input type="file" name="image">
-            <input type="text" placeholder="Name">
-            <select name="city">
-                <option value="Vancouver">Vancouver</option>
-                <option value="Toronto">Toronto</option>
-                <option value="Montreal">Montreal</option>
-            </select>
-            <select name="type">
-                    <option value="Vegetable">Vegetable</option>
-                    <option value="Fruit">Fruit</option>
-            </select>
-            <input type="number" name="weight" placeholder="weight">
-            <input type="button" value="Submit">
+            <div class="modal">
+                    <span class='close' onclick="closeAddListing()">x</span>
+                <h3 id="addListingTitle">Add Listing</h3>
+                <br>
+                <img id="addListingPicture" src="images/insert_picture.png">
+                <input type="file" name="image">
+                <br>
+                <input type="text" placeholder="Name">
+                <br>
+                <select name="city">
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Montreal">Montreal</option>
+                </select>
+                <br>
+                <select name="type">
+                        <option value="Vegetable">Vegetable</option>
+                        <option value="Fruit">Fruit</option>
+                </select>
+                <br>
+                <input type="number" name="weight" placeholder="0 lb">
+                <br>
+                <input type="button" value="Submit">
+            </div>
         </div>
-    </div>
 
 
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>

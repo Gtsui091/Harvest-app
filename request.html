@@ -11,10 +11,10 @@
         <div class="container space-between">
             <a id="logo" href="index.html">Produce for Barter</a>
             <nav>
-                <a class="menuItems" href="#">Add Listing</a>
-                <a class="menuItems" href="#">Requests</a>
-                <a href="#">
-                        <img id="profile" src="images/profile_placeholder.png" >
+                <a class="menuItems" href="index.html">Browse</a>
+                <a class="menuItems" href="#"onclick="displayAddListing()">Add Listing</a>
+                <a href="profile.html">
+                        <img id="profile" src="images/profile_placeholder.png">
                     </a>
             </nav>
 
@@ -23,44 +23,128 @@
 
     <main>
         <div class="container space-between">
+            <!-- Outgoing Trade Request -->
             <div id="outgoing">
                 <h1>Outgoing Requests</h1>
                 <h3>These are your current outgoing trade requests.</h3>
 
                 <div class="items">
                     <img class='itemPicture' src="images/carrots.jpg">
-                    <button class="pending-button">Pending</button>
+                    <button class="pending-button" href="#" onclick="displayOutgoingListing()">Pending</button>
                 </div>
                 <div class="items">
                     <img class='itemPicture' src="images/potatoes.png">
-                    <button class="pending-button">Pending</button>
+                    <button class="pending-button" href="#" onclick="displayOutgoingListing()">Pending</button>
                 </div>
-
-
-
             </div>
+            <!-- Incoming Trade Requests -->
             <div id="incoming">
                 <h1>Incoming Requests</h1>
                 <h3>These are your current incoming trade requests.</h3>
 
                 <div class="items">
                     <img class='itemPicture' src="images/tomatoes.png">
-                    <button class="request-accept-button">Accept</button>
-                    <button class="request-decline-button">Decline</button>
-    
+                    <button class="incoming-request-view" href="#" onclick="displayIncomingListing()">View</button>    
                     </div>
                     <div class="items">
                         <img class='itemPicture' src="images/strawberries.png">
-                        <button class="request-accept-button">Accept</button>
-                        <button class="request-decline-button">Decline</button>
+                        <button class="incoming-request-view" href="#" onclick="displayIncomingListing()">View</button>
                     </div>
 
             </div>
         </div>
     </main>
 
+    <!-- Outgoing Listing -->
+    <div id="outgoing-listing">
+        <div class="modal">
+                <span class='close' onclick="closeOutgoingListing()">x</span>
+            <h3 id="outgoing-modal-title">Outgoing Trade Request</h3>
+            <div class="modal-contents">
+                <img class='outgoing-modal-picture' src="images/carrots.jpg">
+                <input type="text" placeholder="Name">
+                <select name="city">
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Montreal">Montreal</option>
+                </select>
+                <select name="type">
+                        <option value="Vegetable">Vegetable</option>
+                        <option value="Fruit">Fruit</option>
+                </select>
+                <input type="number" name="weight">
+                <input type="button" value="Submit">
+            </div>
+        </div>
+    </div>
+
+    <!-- Incoming Listing -->
+    <div id="incoming-listing">
+        <div class="modal">
+                <span class='close' onclick="closeIncomingListing()">x</span>
+            <h3 id="incoming-modal-title">Incoming Trade Request</h3>
+            <div class="modal-contents">
+                <img class='incoming-modal-picture' src="images/carrots.jpg">
+                <div class="modal-description">
+                    <h4><u><strong>Description</strong></u></h4>
+                </br>
+                    <div>This is placeholder text for the description.</div>
+                </br>
+                    <div>Placeholder for Name of Trader.</div>
+                </br>
+                    <div>Quantity Offered: 10 kg</div>
+                </br>
+                    <div><h4><u><strong>Request Trade Item</strong></u></h4></div>
+                    <div class="incoming-modal-trade-item"> 
+                        
+                        <span>
+                            <img class="incoming-modal-trade-img" src="images/potatoes.png">
+                            <div  class="incoming-modal-trade-text">Potatoes</div>
+                        </span>
+                    </div>
+                    <div><h4><u><strong>Message</strong></u></h4></div>
+                    <span>
+                        Hi, can I have potatoes for carrots?
+                    </span>
+
+                </div>
+
+            </div>
+            <button class="request-accept-button">Accept</button>
+            <button class="request-decline-button">Decline</button>
+        </div>
+    </div>
+    <!-- ADD LISTING -->
+    <div id="add-listing">
+            <div class="modal">
+                    <span class='close' onclick="closeAddListing()">x</span>
+                <h3 id="addListingTitle">Add Listing</h3>
+                <br>
+                <img id="addListingPicture" src="images/insert_picture.png">
+                <input type="file" name="image">
+                <br>
+                <input type="text" placeholder="Name">
+                <br>
+                <select name="city">
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Montreal">Montreal</option>
+                </select>
+                <br>
+                <select name="type">
+                        <option value="Vegetable">Vegetable</option>
+                        <option value="Fruit">Fruit</option>
+                </select>
+                <br>
+                <input type="number" name="weight" placeholder="0 lb">
+                <br>
+                <input type="button" value="Submit">
+            </div>
+        </div>
     <div class="wrapper">
 
     </div>
+    <script src="main.js"></script>
+
 </body>
 </html>
