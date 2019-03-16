@@ -12,16 +12,28 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 function getRequesterName(user) {
-    // var dbRef = firebase.database().ref('/Requests/' + user).once('value').then(function(snapshot) {
-    //     let requester = (snapshot.val() && snapshot.val().requester) || 'requester';
-    var out = document.getElementById("requester-name")
+    var out = document.getElementById("requester-name");
     var dbRef = firebase.database().ref('/Requests/' + user + '/0/').child('requester');
     dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
-
 };
 
+function getRequestDescription(user) {
+    var out = document.getElementById("incoming-description");
+    var dbRef = firebase.database().ref('/Requests/' + user + '/0/').child('itemOfferedDescription');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+};
 
+function getIncomingQuantityOffered(user) {
+    var out = document.getElementById("incoming-quantity-offered");
+    var dbRef = firebase.database().ref('/Requests/' + user + '/0/').child('quantityOffered');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+};
 
+function getIncomingMessage(user) {
+    var out = document.getElementById("incoming-message");
+    var dbRef = firebase.database().ref('/Requests/' + user + '/0/').child('message');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+};
 
 
 

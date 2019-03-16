@@ -121,7 +121,11 @@
                 <div class="modal-description">
                     <h4><u><strong>Description</strong></u></h4>
                 </br>
-                    <div>This is placeholder text for the description.</div>
+                    <div id="incoming-description">
+                        <script>
+                            document.write(getRequestDescription('Billy123'))
+                        </script>
+                    </div>
                 </br>
                     <div id="requester-name">
                         <script>
@@ -129,7 +133,7 @@
                         </script>
                     </div>
                 </br>
-                    <div>Quantity Offered: 10 kg</div>
+                    <div>Quantity Offered: <span id="incoming-quantity-offered"><script>document.write(getIncomingQuantityOffered("Billy123"));</script></span> kg</div>
                 </br>
                     <div class="incoming-request-trade-items"><h4><u><strong>Request Trade Item</strong></u></h4>
                         <div class="incoming-modal-trade-item"> 
@@ -153,8 +157,8 @@
                     </div>
                     
                     <div><h4><u><strong>Message</strong></u></h4></div>
-                    <span>
-                        Hi, can I have potatoes for carrots?
+                    <span id="incoming-message">
+                        <script>document.write(getIncomingMessage("Billy123"));</script>
                     </span>
 
                 </div>
