@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script src="main.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <title>Requests</title>
 </head>
@@ -122,7 +123,11 @@
                 </br>
                     <div>This is placeholder text for the description.</div>
                 </br>
-                    <div>Placeholder for Name of Trader.</div>
+                    <div id="requester-name">
+                        <script>
+                            document.write(getRequesterName('Billy123'));
+                        </script>
+                    </div>
                 </br>
                     <div>Quantity Offered: 10 kg</div>
                 </br>
@@ -195,7 +200,6 @@
 
     </div>
 
-    <script src="main.js"></script>
 
 </body>
 </html>
