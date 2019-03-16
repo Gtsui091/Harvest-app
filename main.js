@@ -9,6 +9,27 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var database = firebase.database();
+
+function getRequesterName(user) {
+    // var dbRef = firebase.database().ref('/Requests/' + user).once('value').then(function(snapshot) {
+    //     let requester = (snapshot.val() && snapshot.val().requester) || 'requester';
+    var out = document.getElementById("requester-name")
+    var dbRef = firebase.database().ref('/Requests/' + user).child('requester');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+
+};
+
+
+
+
+
+
+
+
+
+
+
 // Add Listing Modal
 function displayAddListing() {
     document.getElementById("add-listing").style.display = "flex";
@@ -41,25 +62,25 @@ function closeIncomingListing() {
 //dbRef.on("value", function(snap) {
 //});
 
-let db_listings = firebase.database().ref("listings").set({
-    0: {
-        user: "Billy123",
-        name: "Potatoes",
-        city: "Vancouver",
-        weight: 20,
-        type: "vegetable",
-        image: "url"
-    },
+// let db_listings = firebase.database().ref("listings").set({
+//     0: {
+//         user: "Billy123",
+//         name: "Potatoes",
+//         city: "Vancouver",
+//         weight: 20,
+//         type: "vegetable",
+//         image: "url"
+//     },
 
-    1: {
-        user: "Bob321",
-        name: "Carrots",
-        city: "Vancouver",
-        weight: 50,
-        type: "vegetable",
-        image: "url"
-    },
-});
+//     1: {
+//         user: "Bob321",
+//         name: "Carrots",
+//         city: "Vancouver",
+//         weight: 50,
+//         type: "vegetable",
+//         image: "url"
+//     },
+// });
 
 /*
 let db_users = firebase.database().ref("users").set({
@@ -76,3 +97,85 @@ let db_users = firebase.database().ref("users").set({
     },
 });
 */
+
+// let dbIncomingRequests = firebase.database().ref("incomingRequests").set({
+//     0: {
+//         user: "Billy123",
+//         requester: "John567",
+//         item: "Potatoes",
+//         offeredItem:"Carrots",
+//         offeredItemDescription: "Chatenay Carrots",
+//         quantity: 10,
+//         quantityOffered: 10,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Hi, can I have potatoes for carrots?"
+//     },
+
+//     1: {
+//         user: "Mary565",
+//         requester: "Randy214",
+//         item: "Tomatoes",
+//         offeredItem:"Apples",
+//         offeredItemDescription: "Granny Smith Apples",
+//         quantity: 7,
+//         quantityOffered: 9,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Would you like to trade your tomatoes for my apples?"
+//     },
+// });
+
+// let dbOutgoingRequests = firebase.database().ref("outgoingRequests").set({
+//     0: {
+//         user: "John567",
+//         lister: "Billy123",
+//         item: "Potatoes",
+//         offeredItem:"Carrots",
+//         offeredItemDescription: "Chatenay Carrots",
+//         quantity: 10,
+//         quantityOffered: 10,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Hi, can I have potatoes for carrots?"
+//     },
+
+//     1: {
+//         user: "Randy214",
+//         requester: "Mary565",
+//         item: "Tomatoes",
+//         offeredItem:"Apples",
+//         offeredItemDescription: "Granny Smith Apples",
+//         quantity: 7,
+//         quantityOffered: 9,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Would you like to trade your tomatoes for my apples?"
+//     },
+// });
+// // 
+// let dbRequests = firebase.database().ref("Requests").set({
+//     Billy123: {
+//         requester: "John567",
+//         item: "Potatoes",
+//         offeredItem:"Carrots",
+//         offeredItemDescription: "Chatenay Carrots",
+//         quantity: 10,
+//         quantityOffered: 10,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Hi, can I have potatoes for carrots?"
+//     },
+
+//     Mary565: {
+//         requester: "Randy214",
+//         item: "Tomatoes",
+//         offeredItem:"Apples",
+//         offeredItemDescription: "Granny Smith Apples",
+//         quantity: 7,
+//         quantityOffered: 9,
+//         itemImage: "url",
+//         offeredItemImage: "url",
+//         message: "Would you like to trade your tomatoes for my apples?"
+//     },
+// });

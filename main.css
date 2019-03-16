@@ -142,10 +142,42 @@ button {
     float: left;
 }
 
-.incoming-modal-trade-item {
+.outgoing-modal-trade-item {
+    display: flex;
     height: 110px;
-    width: 100px;
+    width: 101px;
+    margin: 1px;
+}
 
+.outgoing-request-trade-items {
+    height: 160px;
+    width: 300px;
+    overflow-x: auto; 
+}
+
+.request-weight {
+    width: 30px;
+    margin: 5px;
+    padding: 3px;
+    position: relative;
+    left: 5px;
+}
+
+.outgoing-request-modal-button {
+    display: flex;
+}
+
+.incoming-modal-trade-item {
+    display: flex;
+    height: 110px;
+    width: 101px;
+    margin: 1px;
+}
+
+.incoming-request-trade-items{
+    height: 130px;
+    width: 300px;
+    overflow-x: auto; 
 }
 
 .incoming-modal-trade-img {
