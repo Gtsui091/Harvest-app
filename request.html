@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <title>Requests</title>
 </head>
@@ -23,6 +24,7 @@
 
     <main>
         <div class="container space-between">
+
             <!-- Outgoing Trade Request -->
             <div id="outgoing">
                 <h1>Outgoing Requests</h1>
@@ -37,6 +39,7 @@
                     <button class="pending-button" href="#" onclick="displayOutgoingListing()">Pending</button>
                 </div>
             </div>
+
             <!-- Incoming Trade Requests -->
             <div id="incoming">
                 <h1>Incoming Requests</h1>
@@ -105,6 +108,7 @@
             </div>
         </div>
     </div>
+
     <!-- Incoming Listing -->
     <div id="incoming-listing">
         <div class="modal">
