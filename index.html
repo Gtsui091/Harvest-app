@@ -29,61 +29,8 @@
             <h3>This awesome website lets you find home-grown food for barter in your city.</h3>
         </div>
 
-        <div class="container center">
-            <div class="listing">
-                <div class="listing-image-container">
-                    <img class="listing-image" src="images/potatoes.png" alt="">
-                </div>
-                <div class="listing-produce">Potatoes</div>
-                <div class="listing-city">Vancouver, BC</div>
-                <button class="listing-button">Trade</button>
-            </div>
-
-            <div class="listing">
-                    <div class="listing-image-container">
-                        <img class="listing-image" src="images/carrots.png" alt="">
-                    </div>
-                    <div class="listing-produce">Carrots</div>
-                    <div class="listing-city">Vancouver, BC</div>
-                    <button class="listing-button">Trade</button>
-            </div>
-
-            <div class="listing">
-                    <div class="listing-image-container">
-                        <img class="listing-image" src="images/blueberries.png" alt="">
-                    </div>
-                    <div class="listing-produce">Blueberries</div>
-                    <div class="listing-city">Vancouver, BC</div>
-                    <button class="listing-button">Trade</button>
-            </div>
-
-            <div class="listing">
-                    <div class="listing-image-container">
-                        <img class="listing-image" src="images/strawberries.png" alt="">
-                    </div>
-                    <div class="listing-produce">Strawberries</div>
-                    <div class="listing-city">Vancouver, BC</div>
-                    <button class="listing-button">Trade</button>
-            </div>
-
-            <div class="listing">
-                    <div class="listing-image-container">
-                        <img class="listing-image" src="images/tomatoes.png" alt="">
-                    </div>
-                    <div class="listing-produce">Tomatoes</div>
-                    <div class="listing-city">Vancouver, BC</div>
-                    <button class="listing-button">Trade</button>
-            </div>
-
-            <div class="listing">
-                    <div class="listing-image-container">
-                        <img class="listing-image" src="images/watermelons.png" alt="">
-                    </div>
-                    <div class="listing-produce">Watermelons</div>
-                    <div class="listing-city">Vancouver, BC</div>
-                    <button class="listing-button">Trade</button>
-            </div>
-
+        <div id="listings" class="container center">
+            <!-- LISTINGS GO HERE -->
         </div>
     </main>
 
@@ -96,7 +43,7 @@
 
     <!-- ADD LISTING -->
     <div id="add-listing">
-            <div class="modal">
+            <form id="addListingForm" class="modal">
                     <span class='close' onclick="closeAddListing()">x</span>
                 <h3 id="addListingTitle">Add Listing</h3>
                 <br>
@@ -118,8 +65,8 @@
                 <br>
                 <input type="number" name="weight" placeholder="0 lb">
                 <br>
-                <input type="button" value="Submit">
-            </div>
+                <input type="submit" value="Submit">
+            </form>
         </div>
 
     <script src="main.js"></script>

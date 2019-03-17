@@ -35,13 +35,6 @@ function getIncomingMessage(user) {
     dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
 };
 
-
-
-
-
-
-
-
 // Add Listing Modal
 function displayAddListing() {
     document.getElementById("add-listing").style.display = "flex";
@@ -50,28 +43,56 @@ function closeAddListing() {
     document.getElementById("add-listing").style.display = "none";
 }
 
-document.getElementById('uploadFile').addEventListener('change', function() {
-	var file;
-	var destination = document.getElementById('addListingPicture');
+document.getElementById("uploadFile").addEventListener("change", function() {
+    let image = this.files[0];
+    let reader = new FileReader();
 
-	// Looping in case they uploaded multiple files
-	for(var x = 0, xlen = this.files.length; x < xlen; x++) {
-		file = this.files[x];
-		if(file.type.indexOf('image') != -1) { // Very primitive "validation"
+    reader.onloadend = function() {
+        document.getElementById("addListingPicture").src = reader.result;
+    };    
 
-			var reader = new FileReader();
+    reader.readAsDataURL(image);
+});
 
-			reader.onload = function(e) {
-				var img = new Image();
-				img.src = e.target.result; // File contents here
+// Submit listing form
+document.getElementById("addListingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let form = this;
+    let reader = new FileReader();
+    
+    reader.onloadend = function() {
+        let db_listings = firebase.database().ref("Listings").push({
+            user: "user_id",
+            image: reader.result,
+            name: form.elements[1].value,
+            city: form.elements[2].value,
+            type: form.elements[3].value,
+            weight: parseInt(form.elements[4].value),
+        });
+        document.getElementById("addListingForm").reset();
+        document.getElementById("addListingPicture").src = "images/insert_picture.png";
+        closeAddListing();
+    };
 
-				destination.src = "" + e.target.result;
-			};
-			console.log(reader.readAsDataURL(file));
-            
-			reader.readAsDataURL(file);
-		}
-	}
+    reader.readAsDataURL(form.elements[0].files[0]);
+});
+
+function addListingToPage(listing) {
+    document.getElementById("listings").innerHTML += `
+        <div class="listing">
+            <div class="listing-image-container">
+                <img class="listing-image" src="${listing.image}">
+            </div>
+            <div class="listing-produce">${listing.name}</div>
+            <div class="listing-city">${listing.city}</div>
+            <button class="listing-button">Trade</button>
+        </div>
+    `;
+}
+
+// Pull all listings on page load + Add new listings
+firebase.database().ref("Listings").on('child_added', function(listing) {
+    addListingToPage(listing.val());
 });
 
 // Outgoing Trade Request Modal
