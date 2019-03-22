@@ -378,9 +378,11 @@ nav > * {
 #optionsSection {
     width: 600px;
     height: 450px;
-    position: absolute;
-    top: 380px;
-    left: 515px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 320px;
+    right: 115px;
 }
 
 .options {
