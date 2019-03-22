@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script src="main.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <title>Profile</title>
 </head>
@@ -26,35 +27,39 @@
         <div class="container space-between">
             <div id="myProfile">
                 <img id="profilePicture" src="images/profile_placeholder.png">
-                    <div id="profileName">
-                        <h1>George Tai</h1>
-                    </div>
             </div>
             <div id="optionsSection">
-                <div class="options" id="name">
-                    <p >Name</p>
-                    <p class="userInfo">George Tai</p>
+                <div class="options">
+                    <p>Username</p>
+                    <div id="username" class="userInfo">
+                        <script>
+                            document.write(getUsername('IgkRb7HWIMfpA17mSzXjQTpiNa92'));
+                        </script>
+                    </div>
                 </div>
-                <div class="options" id="email">
-                    <p>Email</p>
-                    <p class="userInfo" >georgetai.gardens@gmail.com</p>
+                <div class="options">
+                <p>Email</p>
+                    <div id="email" class="userInfo">
+                        <script>
+                               document.write(getEmail('IgkRb7HWIMfpA17mSzXjQTpiNa92'));
+                        </script>
+                    </div>
                 </div>
-                <div class="options" id="phoneNumber">
-                    <p>Phone Number</p>
-                    <p class="userInfo" >778-564-8612</p>
+                <div class="options">
+                <p>Phone Number</p>
+                    <div id="phoneNumber" class="userInfo">
+                        <script>
+                            document.write(getPhoneNumber('IgkRb7HWIMfpA17mSzXjQTpiNa92'));
+                        </script>
+                    </div>
                 </div>
-                <div class="options" id="address">
+                <div class="options">
                     <p>Address</p>
-                    <p class="userInfo" >4869 Templeton Street, Vancouver</p>
-                </div>
-                <div class="options" id="myListings">
-                    <a class="clickOptions" href="#">My Listings</a>
-                </div>
-                <div class="options" id="faqs">
-                    <a class="clickOptions" href="#">FAQs</a>
-                </div>
-                <div class="options" id="feedback">
-                    <a class="clickOptions" href="#">Feedback</a>
+                    <div id="address" class="userInfo">
+                        <script>
+                            document.write(getAddress('IgkRb7HWIMfpA17mSzXjQTpiNa92'));
+                        </script>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,6 +92,5 @@
             <input type="button" value="Submit">
         </div>
     </div>
-    <script src="main.js"></script>
 </body>
 </html>

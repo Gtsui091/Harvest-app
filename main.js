@@ -35,6 +35,31 @@ function getIncomingMessage(user) {
     dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
 };
 
+// Pull user profile info from database
+function getUsername(userId) {
+    var out = document.getElementById("username");
+    var dbRef = firebase.database().ref('/Users/' + userId).child('username');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+};
+
+function getEmail(userId) {
+    var out = document.getElementById("email");
+    var dbRef = firebase.database().ref('/Users/' + userId).child('email');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+};
+
+function getAddress(userId) {
+    var out = document.getElementById("address");
+    var dbRef = firebase.database().ref('/Users/' + userId).child('address');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+};
+
+function getPhoneNumber(userId) {
+    var out = document.getElementById("phoneNumber");
+    var dbRef = firebase.database().ref('/Users/' + userId).child('phoneNumber');
+    dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
+};
+
 // Add Listing Modal
 function displayAddListing() {
     document.getElementById("add-listing").style.display = "flex";
