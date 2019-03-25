@@ -73,14 +73,14 @@ document.getElementById("uploadFile").addEventListener("change", function() {
     let reader = new FileReader();
 
     reader.onloadend = function() {
-        document.getElementById("addListingPicture").src = reader.result;
+        document.getElementById("add-listing-picture").src = reader.result;
     };    
 
     reader.readAsDataURL(image);
 });
 
 // Submit listing form
-document.getElementById("addListingForm").addEventListener("submit", function(event) {
+document.getElementById("add-listing-form").addEventListener("submit", function(event) {
     event.preventDefault();
     let form = this;
     let reader = new FileReader();
@@ -94,31 +94,29 @@ document.getElementById("addListingForm").addEventListener("submit", function(ev
             type: form.elements[3].value,
             weight: parseInt(form.elements[4].value),
         });
-        document.getElementById("addListingForm").reset();
-        document.getElementById("addListingPicture").src = "images/insert_picture.png";
+        document.getElementById("add-listing-form").reset();
+        document.getElementById("add-listing-picture").src = "images/insert_picture.png";
         closeAddListing();
     };
 
     reader.readAsDataURL(form.elements[0].files[0]);
 });
 
+// Pull all listings on page load + Add new listings
+firebase.database().ref("Listings").on('child_added', function(listing) {    
+    addListingToPage(listing);
+});
+
 function addListingToPage(listing) {
     document.getElementById("listings").innerHTML += `
-        <div class="listing">
-            <div class="listing-image-container">
-                <img class="listing-image" src="${listing.image}">
-            </div>
-            <div class="listing-produce">${listing.name}</div>
-            <div class="listing-city">${listing.city}</div>
-            <button class="listing-button">Trade</button>
+        <div class="listing" id="${listing.key}">
+            <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
+            <div class="listing-name">${listing.val().name}</div>
+            <div class="listing-city">${listing.val().city}</div>
+            <div class="listing-weight">${listing.val().weight} lb</div>
         </div>
     `;
 }
-
-// Pull all listings on page load + Add new listings
-firebase.database().ref("Listings").on('child_added', function(listing) {
-    addListingToPage(listing.val());
-});
 
 // Outgoing Trade Request Modal
 function displayOutgoingListing() {
