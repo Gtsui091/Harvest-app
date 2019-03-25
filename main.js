@@ -152,6 +152,7 @@ function closeIncomingListing() {
 
 
 function displayInfoModal(key) {
+    let id = "IgkRb7HWIMfpA17mSzXjQTpiNa92";
     document.getElementById("info").style.display = "flex";
 
     firebase.database().ref('Listings/' + key).once('value').then(function(listing) {
@@ -162,7 +163,7 @@ function displayInfoModal(key) {
         document.getElementById("info-weight").innerHTML = listing.val().weight;
     });
 
-    firebase.database().ref('Users/' + firebase.auth().currentUser["uid"]).once('value').then(function(user) {
+    firebase.database().ref('Users/' + id).once('value').then(function(user) {
         document.getElementById("info-email").innerHTML = user.val().email;
         document.getElementById("info-phone").innerHTML = user.val().phoneNumber;
     });
