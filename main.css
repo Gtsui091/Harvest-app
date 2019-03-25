@@ -299,6 +299,7 @@ header {
 
 #logo {
     font-size: 45px;
+    text-shadow: 1px 1px black;
     /*font-family: "coolveticaregular";*/
     color: white;
 }
@@ -350,22 +351,20 @@ nav > * {
     height: 200px;
 }
 
+.listing-name, .listing-city, .listing-weight {
+    margin: 5px;
+}
+
 .listing-name {
     font-size: 25px;
-    padding-top: 5px;
-    margin-left: 10px;
 }
 
 .listing-city {
     float: left;
-    padding-top: 5px;
-    margin-left: 10px;
 }
 
-.listing-button {
+.listing-weight {
     float: right;
-    margin-right: 10px;
-    border-radius: 15px;
 }
 
 

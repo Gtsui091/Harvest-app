@@ -102,23 +102,21 @@ document.getElementById("add-listing-form").addEventListener("submit", function(
     reader.readAsDataURL(form.elements[0].files[0]);
 });
 
+// Pull all listings on page load + Add new listings
+firebase.database().ref("Listings").on('child_added', function(listing) {    
+    addListingToPage(listing);
+});
+
 function addListingToPage(listing) {
-    console.log(listing);
-    
     document.getElementById("listings").innerHTML += `
-        <div class="listing">
-            <div class="listing-image" style="background-image: url(${listing.image});"></div>
-            <div class="listing-name">${listing.name}</div>
-            <div class="listing-city">${listing.city}</div>
-            <div class="listing-weight">${listing.weight}</div>
+        <div class="listing" id="${listing.key}">
+            <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
+            <div class="listing-name">${listing.val().name}</div>
+            <div class="listing-city">${listing.val().city}</div>
+            <div class="listing-weight">${listing.val().weight} lb</div>
         </div>
     `;
 }
-
-// Pull all listings on page load + Add new listings
-firebase.database().ref("Listings").on('child_added', function(listing) {
-    addListingToPage(listing.val());
-});
 
 // Outgoing Trade Request Modal
 function displayOutgoingListing() {
