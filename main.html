@@ -32,7 +32,7 @@
     <!-- ADD LISTING -->
     <div id="add-listing">
             <form id="add-listing-form" class="modal">
-                    <span class='close' onclick="closeAddListing()">x</span>
+                <span class='close' onclick="closeAddListing()">x</span>
                 <h3 id="add-listing-title">Add Listing</h3>
                 <br>
                 <img id="add-listing-picture" src="images/insert_picture.png">
@@ -55,6 +55,19 @@
                 <br>
                 <input type="submit" value="Submit">
             </form>
+        </div>
+
+        <!-- INFO MODAL -->
+        <div id="info">
+            <div id="info-modal" class="modal">
+                <div class="close" onclick="hideInfoModal()">x</div>
+                <div id="info-image"></div>
+                <div id="info-name"></div>
+                <div id="info-city"></div>
+                <div id="info-weight"></div>
+                <div id="info-email"></div>
+                <div id="info-phone"></div>
+            </div>
         </div>
 
     <script src="main.js"></script>
