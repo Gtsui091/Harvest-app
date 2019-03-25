@@ -343,11 +343,10 @@ header {
 
 #logo {
     position: relative;
-    /* right: 225px; */
     top:25px;
     font-size: 45px;
     text-shadow: 1px 1px black;
-    /*font-family: "coolveticaregular";*/
+    font-family: "coolveticaregular";
     color: white;
 }
 
