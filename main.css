@@ -184,6 +184,14 @@ button {
     border: solid black 1px;
 }
 
+#info-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 200px;
+}
+
 #add-listing-title {
     font-style: normal;
     font-weight: bold;
@@ -191,7 +199,7 @@ button {
     font-size: 24px;
 }
 
-#add-listing {
+#add-listing, #info{
     position: fixed;
     display: none;
     justify-content: center;
@@ -394,6 +402,8 @@ nav > * {
     height: 275px;
     margin: 15px;
     cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .listing-image {
