@@ -73,14 +73,14 @@ document.getElementById("uploadFile").addEventListener("change", function() {
     let reader = new FileReader();
 
     reader.onloadend = function() {
-        document.getElementById("addListingPicture").src = reader.result;
+        document.getElementById("add-listing-picture").src = reader.result;
     };    
 
     reader.readAsDataURL(image);
 });
 
 // Submit listing form
-document.getElementById("addListingForm").addEventListener("submit", function(event) {
+document.getElementById("add-listing-form").addEventListener("submit", function(event) {
     event.preventDefault();
     let form = this;
     let reader = new FileReader();
@@ -94,8 +94,8 @@ document.getElementById("addListingForm").addEventListener("submit", function(ev
             type: form.elements[3].value,
             weight: parseInt(form.elements[4].value),
         });
-        document.getElementById("addListingForm").reset();
-        document.getElementById("addListingPicture").src = "images/insert_picture.png";
+        document.getElementById("add-listing-form").reset();
+        document.getElementById("add-listing-picture").src = "images/insert_picture.png";
         closeAddListing();
     };
 
@@ -103,14 +103,14 @@ document.getElementById("addListingForm").addEventListener("submit", function(ev
 });
 
 function addListingToPage(listing) {
+    console.log(listing);
+    
     document.getElementById("listings").innerHTML += `
         <div class="listing">
-            <div class="listing-image-container">
-                <img class="listing-image" src="${listing.image}">
-            </div>
-            <div class="listing-produce">${listing.name}</div>
+            <div class="listing-image" style="background-image: url(${listing.image});"></div>
+            <div class="listing-name">${listing.name}</div>
             <div class="listing-city">${listing.city}</div>
-            <button class="listing-button">Trade</button>
+            <div class="listing-weight">${listing.weight}</div>
         </div>
     `;
 }

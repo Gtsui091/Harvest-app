@@ -126,14 +126,14 @@ button {
     display: block;
 }
 
-#addListingPicture {
+#add-listing-picture {
     height: 200px;
     width: 200px;
     border-radius: 13px;
     border: solid black 1px;
 }
 
-#addListingTitle {
+#add-listing-title {
     font-style: normal;
     font-weight: bold;
     line-height: normal;
@@ -292,16 +292,14 @@ header {
 }
 
 #logo, nav {
-    height: 75px;
-    line-height: 75px;
+    height: 115px;
+    line-height: 115px;
     margin: 0px 15px;
 }
 
 #logo {
-    position: relative;
-    top:25px;
     font-size: 45px;
-    font-family: "coolveticaregular";
+    /*font-family: "coolveticaregular";*/
     color: white;
 }
 
@@ -334,33 +332,25 @@ nav > * {
     margin: 15px;
 }
 
+/* LISTING */
 .listing {
     background-color: #ffffff;
     border: 1px solid #111111;
     width: 250px;
     height: 275px;
     margin: 15px;
-    border-radius: 15px;
-}
-
-.listing-image-container {
-    display: flex;
-    border-bottom: 1px solid #111111;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-    border-radius: 15px;
+    cursor: pointer;
 }
 
 .listing-image {
-    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #111111;
     width: 100%;
-    border-radius: 15px;
+    height: 200px;
 }
 
-.listing-produce {
+.listing-name {
     font-size: 25px;
     padding-top: 5px;
     margin-left: 10px;
