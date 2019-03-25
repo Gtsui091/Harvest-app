@@ -121,7 +121,7 @@ firebase.database().ref("Listings").on('child_added', function(listing) {
 
 function addListingToPage(listing) {
     document.getElementById("listings").innerHTML += `
-        <div class="listing" id="${listing.key}">
+        <div class="listing" id="${listing.key}" onclick="displayInfoModal(this.id)">
             <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
             <div class="listing-name">${listing.val().name}</div>
             <div class="listing-city">${listing.val().city}</div>
@@ -149,6 +149,31 @@ function displayIncomingListing() {
 function closeIncomingListing() {
     document.getElementById("incoming-listing").style.display = "none";
 }
+
+
+function displayInfoModal(key) {
+    let id = "IgkRb7HWIMfpA17mSzXjQTpiNa92"; // FIX ME
+
+    document.getElementById("info").style.display = "flex";
+
+    firebase.database().ref('Listings/' + key).once('value').then(function(listing) {
+        console.log(listing.val());
+        document.getElementById("info-name").innerHTML = listing.val().name;
+        document.getElementById("info-image").style.backgroundImage = "url("+listing.val().image+")";
+        document.getElementById("info-city").innerHTML = listing.val().city;
+        document.getElementById("info-weight").innerHTML = listing.val().weight;
+    });
+
+    firebase.database().ref('Users/' + id).once('value').then(function(user) {
+        document.getElementById("info-email").innerHTML = user.val().email;
+        document.getElementById("info-phone").innerHTML = user.val().phoneNumber;
+    });
+}
+
+function hideInfoModal() {
+    document.getElementById("info").style.display = "none";
+}
+
 
 //let dbRef = firebase.database().ref().child("message");
 //dbRef.on("value", function(snap) {
