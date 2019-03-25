@@ -10,6 +10,18 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+var current_user = firebase.auth().currentUser;
+
+function successfulSignIn(){
+    var current_user = firebase.auth().currentUser;
+    console.log(current_user)
+        let user_profile = firebase.database().ref("/Users/" + firebase.auth().currentUser["uid"]).push({
+            address: "placeholder",
+            email: firebase.auth().currentUser["email"],
+            phoneNumber: "placeholder",
+            username: firebase.auth().currentUser["displayName"]
+        });
+};
 
 function getRequesterName(user) {
     var out = document.getElementById("requester-name");
@@ -36,9 +48,9 @@ function getIncomingMessage(user) {
 };
 
 // Pull user profile info from database
-function getUsername(userId) {
+function getUsername() {
     var out = document.getElementById("username");
-    var dbRef = firebase.database().ref('/Users/' + userId).child('username');
+    var dbRef = firebase.database().ref('/Users/' + current_user).child('username');
     dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
 };
 
