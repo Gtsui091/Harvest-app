@@ -10,18 +10,34 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var current_user = firebase.auth().currentUser;
+// var currentUser = firebase.auth().currentUser;
 
-function successfulSignIn(){
-    var current_user = firebase.auth().currentUser;
-    console.log(current_user)
-        let user_profile = firebase.database().ref("/Users/" + firebase.auth().currentUser["uid"]).push({
-            address: "placeholder",
+var currentUser;
+
+// Once logged in, create user profile and write to firebase
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        currentUser = user;
+        console.log(currentUser);
+        let user_profile = firebase.database().ref("/Users/" + firebase.auth().currentUser["uid"]).set({
             email: firebase.auth().currentUser["email"],
-            phoneNumber: "placeholder",
             username: firebase.auth().currentUser["displayName"]
         });
-};
+    } else {
+      console.log("No one is signed in.")
+    }
+  });
+
+
+// function successfulSignIn(){
+//     console.log(currentUser)
+//         let user_profile = firebase.database().ref("/Users/" + firebase.auth().currentUser["uid"]).set({
+//             address: "placeholder",
+//             email: firebase.auth().currentUser["email"],
+//             phoneNumber: "placeholder",
+//             username: firebase.auth().currentUser["displayName"]
+//         });
+// };
 
 function getRequesterName(user) {
     var out = document.getElementById("requester-name");
@@ -50,7 +66,7 @@ function getIncomingMessage(user) {
 // Pull user profile info from database
 function getUsername() {
     var out = document.getElementById("username");
-    var dbRef = firebase.database().ref('/Users/' + current_user).child('username');
+    var dbRef = firebase.database().ref('/Users/' + currentUser).child('username');
     dbRef.once("value", function(snap){ out.innerHTML = snap.val(); } );
 };
 
@@ -99,7 +115,7 @@ document.getElementById("add-listing-form").addEventListener("submit", function(
     
     reader.onloadend = function() {
         let db_listings = firebase.database().ref("Listings").push({
-            user: "user_id",
+            user: currentUser["uid"],
             image: reader.result,
             name: form.elements[1].value,
             city: form.elements[2].value,
@@ -129,6 +145,27 @@ function addListingToPage(listing) {
         </div>
     `;
 }
+
+//Pull all current user's listings onto myListings page
+// firebase.database().ref("Listings").on('child_added', function(listing) {    
+//     showMyListings(listing);
+// });
+
+// firebase.database().ref('/Listings/' + currentUser.uid).once('value').then(function(snapshot) {
+//     let listing = snapshot.val();
+//     showMyListings(listing);
+// });
+
+// function showMyListings(listing) {
+//     document.getElementById("myListings").innerHTML += `
+//         <div class="listing" id="${listing.key}" onclick="displayInfoModal(this.id)">
+//             <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
+//             <div class="listing-name">${listing.val().name}</div>
+//             <div class="listing-city">${listing.val().city}</div>
+//             <div class="listing-weight">${listing.val().weight} lb</div>
+//         </div>
+//     `;
+// }
 
 // Outgoing Trade Request Modal
 function displayOutgoingListing() {
