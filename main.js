@@ -146,26 +146,22 @@ function addListingToPage(listing) {
     `;
 }
 
-//Pull all current user's listings onto myListings page
-// firebase.database().ref("Listings").on('child_added', function(listing) {    
-//     showMyListings(listing);
-// });
+// Pull all current user's listings onto myListings page - cannot figure this out :(
 
-// firebase.database().ref('/Listings/' + currentUser.uid).once('value').then(function(snapshot) {
-//     let listing = snapshot.val();
-//     showMyListings(listing);
-// });
+firebase.database().ref('Listings').orderByChild(currentUser["uid"]).once('value', function(listing) {
+    showMyListings(listing);
+});
 
-// function showMyListings(listing) {
-//     document.getElementById("myListings").innerHTML += `
-//         <div class="listing" id="${listing.key}" onclick="displayInfoModal(this.id)">
-//             <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
-//             <div class="listing-name">${listing.val().name}</div>
-//             <div class="listing-city">${listing.val().city}</div>
-//             <div class="listing-weight">${listing.val().weight} lb</div>
-//         </div>
-//     `;
-// }
+function showMyListings(listing) {
+    document.getElementById("myListings").innerHTML += `
+        <div class="listing" id="${listing.key}" onclick="displayInfoModal(this.id)">
+            <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
+            <div class="listing-name">${listing.val().name}</div>
+            <div class="listing-city">${listing.val().city}</div>
+            <div class="listing-weight">${listing.val().weight} lb</div>
+        </div>
+    `;
+}
 
 // Outgoing Trade Request Modal
 function displayOutgoingListing() {
