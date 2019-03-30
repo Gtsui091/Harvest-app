@@ -148,19 +148,28 @@ function addListingToPage(listing) {
 
 // Pull all current user's listings onto myListings page - cannot figure this out :(
 
+
 firebase.database().ref('Listings').orderByChild(currentUser["uid"]).once('value', function(listing) {
     showMyListings(listing);
 });
 
+function getListing(){
+    firebase.database().ref("Listings").on('child_added', function(listing) {
+        console.log(listing)
+        showMyListings(listing);
+    });
+}
+
 function showMyListings(listing) {
-    document.getElementById("myListings").innerHTML += `
-        <div class="listing" id="${listing.key}" onclick="displayInfoModal(this.id)">
-            <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
-            <div class="listing-name">${listing.val().name}</div>
-            <div class="listing-city">${listing.val().city}</div>
-            <div class="listing-weight">${listing.val().weight} lb</div>
-        </div>
-    `;
+    if (listing.val().user == currentUser['uid']){
+        document.getElementById("myListings").innerHTML += `
+            <div class="listing" id="${listing.key}" onclick="displayInfoModal(this.id)">
+                <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
+                <div class="listing-name">${listing.val().name}</div>
+                <div class="listing-city">${listing.val().city}</div>
+                <div class="listing-weight">${listing.val().weight} lb</div>
+            </div>
+    `;}
 }
 
 // Outgoing Trade Request Modal
