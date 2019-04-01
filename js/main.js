@@ -12,6 +12,8 @@ var page = window.location.pathname.split("/").pop();
 var userID;
 
 firebase.auth().onAuthStateChanged(function(user){
+    console.log(page);
+    
     if (user) {
         userID = user.uid;
         isUserInDB(user);
