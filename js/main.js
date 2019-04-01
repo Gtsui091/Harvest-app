@@ -146,17 +146,15 @@ function showMyListings() {
 }
 
 function loadIndexPageNotLoggedIn() {
-    document.body.innerHTML += header_HTML + welcome_HTML;
+    document.body.innerHTML += header_not_logged_in_HTML + welcome_HTML;
 }
 
 function loadIndexPageLoggedIn() {
-    document.body.innerHTML += header_HTML + listings_HTML + add_listing_HTML + show_info_HTML;
-    document.getElementById('header').innerHTML = logged_in_HTML;
+    document.body.innerHTML += header_logged_in_HTML + listings_HTML + add_listing_HTML + show_info_HTML;
 }
 
 function loadProfilePage() {
-    document.body.innerHTML += header_HTML + user_profile_HTML + listings_HTML + add_listing_HTML + show_info_HTML;
-    document.getElementById('header').innerHTML = logged_in_HTML;
+    document.body.innerHTML += header_logged_in_HTML + user_profile_HTML + listings_HTML + add_listing_HTML + show_info_HTML;
     addUserProfile();
 }
 
@@ -170,10 +168,12 @@ function addUserProfile() {
 /////////////////////////////////////////////////////
 // COMMON HTML //////////////////////////////////////
 ////////////////////////////////////////////////////
-var header_HTML = `
+var header_not_logged_in_HTML = `
 <div id="header">
-    <a id="logo" href="index.html">Produce for Barter</a>
-    <a id="login-logout" href="login.html">Login</a>
+    <div class="wrapper">
+        <a id="logo" href="index.html">Produce for Barter</a>
+        <a id="login-button" href="login.html">Login</a>
+    </div>
 </div>
 `;
 
@@ -208,11 +208,15 @@ var show_info_HTML=`
 </div>
 `;
 
-var logged_in_HTML = `
-<a id="logo" href="index.html">Produce for Barter</a>
-<a id="login-logout" href="#" onclick="logOut();">Logout</a>
-<a href="profile.html">Profile</a>
-<a href="#" onclick="displayAddListingModal();">Add Listing</a>
+var header_logged_in_HTML = `
+<div id="header">
+    <div class="wrapper">
+        <a id="logo" href="index.html">Produce for Barter</a>
+        <a id="login-button" href="#" onclick="logOut();">Logout</a>
+        <a id="profile-button" href="profile.html">Profile</a>
+        <a id="add-listing-button" href="#" onclick="displayAddListingModal();">Add Listing</a>
+    </div>
+</div>
 `;
 
 var welcome_HTML = `
@@ -226,5 +230,6 @@ var user_profile_HTML = `
 <div id="user-profile">
     <div id="user-profile-name"></div>
     <div id="user-profile-email"></div>
+    <div id="user-profile-listings">My listings:</div>
 </div>
 `;
