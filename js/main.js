@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 var page = window.location.pathname.split("/").pop();
 var userID;
-console.log(window.location);
+console.log(page);
 
 firebase.auth().onAuthStateChanged(function(user){
     if (user) {
