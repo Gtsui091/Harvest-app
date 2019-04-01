@@ -10,10 +10,9 @@ var config = {
 firebase.initializeApp(config);
 var page = window.location.pathname.split("/").pop();
 var userID;
-console.log(page);
+console.log(window.location.pathname);
+
 firebase.auth().onAuthStateChanged(function(user){
-    console.log(page);
-    
     if (user) {
         userID = user.uid;
         isUserInDB(user);
