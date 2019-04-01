@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function(user){
     if (user) {
         userID = user.uid;
         isUserInDB(user);
-        if (page == "index.html" || page == null) {
+        if (page == "index.html" || page == "") {
             loadIndexPageLoggedIn();
             showAllListings();
         }
@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function(user){
             showMyListings();
         }
     } else {
-        if (page == "index.html" || page == null) {loadIndexPageNotLoggedIn();}
+        if (page == "index.html" || page == "") {loadIndexPageNotLoggedIn();}
     }
 });
 
