@@ -172,6 +172,7 @@ var header_not_logged_in_HTML = `
 <div id="header">
     <div class="wrapper">
         <a id="logo" href="index.html">Harvest</a>
+        <img id="logo-image" src="leaf.png">
         <a id="login-button" href="login.html">Login</a>
     </div>
 </div>
@@ -212,6 +213,7 @@ var header_logged_in_HTML = `
 <div id="header">
     <div class="wrapper">
         <a id="logo" href="index.html">Harvest</a>
+        <img id="logo-image" src="leaf.png">
         <a id="login-button" href="#" onclick="logOut();">Logout</a>
         <a id="profile-button" href="profile.html">Profile</a>
         <a id="add-listing-button" href="#" onclick="displayAddListingModal();">Add Listing</a>

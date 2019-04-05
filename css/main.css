@@ -55,6 +55,14 @@ a {
     font-size: 23px;
 }
 
+#logo-image {
+    width: 2em;
+    height: 2em;
+    position: relative;
+    top: 22px;
+    left: -3px;
+}
+
 #add-listing-button, #profile-button, #login-button {
     float: right;
 }
@@ -91,6 +99,7 @@ a {
     background-color: white;
     float: left;
     margin: 10px;
+    cursor: pointer;
 }
 
 .listing-image {
