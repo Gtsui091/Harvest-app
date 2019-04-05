@@ -61,6 +61,7 @@ a {
     position: relative;
     top: 22px;
     left: -3px;
+    cursor: pointer;
 }
 
 #add-listing-button, #profile-button, #login-button {
