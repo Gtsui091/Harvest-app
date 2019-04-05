@@ -106,7 +106,7 @@ function displayShowInfoModal(listingID) {
         document.getElementById('show-info-image').style.backgroundImage = `url(${listing.val().image})`;
         document.getElementById('show-info-title').innerHTML = listing.val().title;
         document.getElementById('show-info-city').innerHTML = listing.val().city;
-        document.getElementById('show-info-weight').innerHTML = listing.val().weight;
+        document.getElementById('show-info-weight').innerHTML = listing.val().weight + " lb";
 
         firebase.database().ref('users/' + listing.val().uid).once('value').then(function(user) {
             document.getElementById('show-info-name').innerHTML = user.val().name;
@@ -203,7 +203,7 @@ var show_info_HTML=`
         <div id="show-info-weight"></div>
         <div id="show-info-name"></div>
         <a id="show-info-email"></a>
-        <span id="show-info-close" onclick="hideShowInfoModal();">x</span>
+        <span id="show-info-close" onclick="hideShowInfoModal();">close</span>
     </div>
 </div>
 `;

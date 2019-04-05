@@ -132,6 +132,13 @@ a {
     margin: 10px;
 }
 
+#show-info-close {
+    float: right;
+    position: relative;
+    left: -7px;
+    cursor: pointer;
+}
+
 .page-title {
     position: relative;
     text-align: center;
