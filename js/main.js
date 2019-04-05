@@ -240,13 +240,17 @@ var indexPageTitle = `
     <br>
     <p>Market Place</p>
     <br>
+    <p class="description">Browse fresh fruit and vegetables available for trade.</p>
+    <br>
 </div>
 `;
 
 var profilePageTitle = `
 <div class = "page-title">
     <br>
-    <p>My Listings</p>
+    <p>Your Listings</p>
+    <br>
+    <p class="description">Manage produce you have listed in the Marketplace.</p>
     <br>
 </div>
 `;
