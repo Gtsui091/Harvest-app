@@ -124,7 +124,7 @@ function displayShowInfoMyListingModal(listingID) {
         document.getElementById('show-info-title').innerHTML = listing.val().title;
         document.getElementById('show-info-city').innerHTML = listing.val().city;
         document.getElementById('show-info-weight').innerHTML = listing.val().weight + " lb";
-
+        document.getElementById('remove-listing').onclick = function() {removeListing(listingID, listing.val().uid);} 
     });
 }
 
@@ -150,8 +150,19 @@ function addMyListingsToPage(listing) {
     `;
 }
 
-function removeListing() {
+function removeListing(listingID, uid) {
+    firebase.database().ref("listings/" + listingID).remove();
 
+    firebase.database().ref('/users/' + userID + '/listings').once('value').then(function(snapshot) {
+        var listings = snapshot.val();
+        for (let i = 0; i < listings.length; i++) {
+            if (listings[i] == listingID) {
+                listings.splice(i, 1); 
+            }
+        }
+        firebase.database().ref('users/' + userID + '/listings/').set(listings);
+        window.location.href="profile.html";
+    });
 }
 
 function showAllListings() {
@@ -244,7 +255,7 @@ var show_info_user_listing_HTML=`
         <div id="show-info-weight"></div>
         <div id="show-info-city"></div>
         <div id="listed-by">Listed by: You</div>
-        <span id="remove-listing" onclick="removeListing();">Remove Listing</span>
+        <span id="remove-listing">Remove Listing</span>
         <span id="show-info-close" onclick="hideShowInfoModal();">close</span>
     </div>
 </div>
