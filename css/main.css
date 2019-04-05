@@ -152,6 +152,7 @@ a {
     position: relative;
     left: -7px;
     cursor: pointer;
+    color: red;
 }
 
 .page-title {
