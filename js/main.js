@@ -109,7 +109,7 @@ function displayShowInfoModal(listingID) {
         document.getElementById('show-info-weight').innerHTML = listing.val().weight + " lb";
 
         firebase.database().ref('users/' + listing.val().uid).once('value').then(function(user) {
-            document.getElementById('show-info-name').innerHTML = user.val().name;
+            document.getElementById('show-info-name').innerHTML = "Listed by: " + user.val().name;
             document.getElementById('show-info-email').innerHTML = user.val().email;
             document.getElementById('show-info-email').href = `mailto:${user.val().email}`;
         });
@@ -200,8 +200,8 @@ var show_info_HTML=`
     <div class="modal">
         <div id="show-info-image"></div>
         <div id="show-info-title"></div>
-        <div id="show-info-city"></div>
         <div id="show-info-weight"></div>
+        <div id="show-info-city"></div>
         <div id="show-info-name"></div>
         <a id="show-info-email"></a>
         <span id="show-info-close" onclick="hideShowInfoModal();">close</span>
