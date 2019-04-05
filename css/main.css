@@ -34,7 +34,7 @@ a {
 }
 
 #header {
-    background-color: #239B56;
+    background-color: rgb(140, 182, 158);
     box-shadow: 1px 1px 5px #aaaaaa;
     height: 75px;
     margin-bottom: 10px;
@@ -47,11 +47,12 @@ a {
     margin: 0px 10px;
     color: white;
     text-shadow: 1px 1px 1px #333333;
+    font-size: 1.2em;
 }
 
 #logo {
     float: left;
-    font-size: 20px;
+    font-size: 23px;
 }
 
 #add-listing-button, #profile-button, #login-button {
@@ -129,4 +130,10 @@ a {
 
 #show-info-title, #show-info-city, #show-info-weight, #show-info-name, #show-info-email {
     margin: 10px;
+}
+
+.page-title {
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
 }

@@ -150,11 +150,11 @@ function loadIndexPageNotLoggedIn() {
 }
 
 function loadIndexPageLoggedIn() {
-    document.body.innerHTML += header_logged_in_HTML + listings_HTML + add_listing_HTML + show_info_HTML;
+    document.body.innerHTML += header_logged_in_HTML + indexPageTitle + listings_HTML + add_listing_HTML + show_info_HTML;
 }
 
 function loadProfilePage() {
-    document.body.innerHTML += header_logged_in_HTML + user_profile_HTML + listings_HTML + add_listing_HTML + show_info_HTML;
+    document.body.innerHTML += header_logged_in_HTML + user_profile_HTML + profilePageTitle + listings_HTML + add_listing_HTML + show_info_HTML;
     addUserProfile();
 }
 
@@ -171,7 +171,7 @@ function addUserProfile() {
 var header_not_logged_in_HTML = `
 <div id="header">
     <div class="wrapper">
-        <a id="logo" href="index.html">Produce for Barter</a>
+        <a id="logo" href="index.html">Harvest</a>
         <a id="login-button" href="login.html">Login</a>
     </div>
 </div>
@@ -211,7 +211,7 @@ var show_info_HTML=`
 var header_logged_in_HTML = `
 <div id="header">
     <div class="wrapper">
-        <a id="logo" href="index.html">Produce for Barter</a>
+        <a id="logo" href="index.html">Harvest</a>
         <a id="login-button" href="#" onclick="logOut();">Logout</a>
         <a id="profile-button" href="profile.html">Profile</a>
         <a id="add-listing-button" href="#" onclick="displayAddListingModal();">Add Listing</a>
@@ -230,6 +230,22 @@ var user_profile_HTML = `
 <div id="user-profile">
     <div id="user-profile-name"></div>
     <div id="user-profile-email"></div>
-    <div id="user-profile-listings">My listings:</div>
 </div>
 `;
+
+var indexPageTitle = `
+<div class = "page-title">
+    <br>
+    <p>Market Place</p>
+    <br>
+</div>
+`;
+
+var profilePageTitle = `
+<div class = "page-title">
+    <br>
+    <p>My Listings</p>
+    <br>
+</div>
+`;
+
