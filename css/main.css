@@ -138,8 +138,13 @@ a {
     background-repeat: no-repeat;
 }
 
-#show-info-title, #show-info-city, #show-info-weight, #show-info-name, #show-info-email {
+#show-info-title, #show-info-city, #show-info-weight, #show-info-name, #show-info-email, #listed-by, #remove-listing {
     margin: 10px;
+}
+
+#remove-listing {
+    cursor: pointer;
+    color: blue;
 }
 
 #show-info-close {

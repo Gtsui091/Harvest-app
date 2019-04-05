@@ -116,6 +116,18 @@ function displayShowInfoModal(listingID) {
     });
 }
 
+function displayShowInfoMyListingModal(listingID) {
+    document.getElementById('show-info').style.display = "flex";
+
+    firebase.database().ref('listings/' + listingID).once('value').then(function(listing) {
+        document.getElementById('show-info-image').style.backgroundImage = `url(${listing.val().image})`;
+        document.getElementById('show-info-title').innerHTML = listing.val().title;
+        document.getElementById('show-info-city').innerHTML = listing.val().city;
+        document.getElementById('show-info-weight').innerHTML = listing.val().weight + " lb";
+
+    });
+}
+
 function addListingToPage(listing) {
     document.getElementById("listings").innerHTML += `
         <div class="listing" id="${listing.key}" onclick="displayShowInfoModal(this.id)">
@@ -125,6 +137,21 @@ function addListingToPage(listing) {
             <div class="listing-weight">${listing.val().weight} lb</div>
         </div>
     `;
+}
+
+function addMyListingsToPage(listing) {
+    document.getElementById("listings").innerHTML += `
+        <div class="listing" id="${listing.key}" onclick="displayShowInfoMyListingModal(this.id)">
+            <div class="listing-image" style="background-image: url(${listing.val().image});"></div>
+            <div class="listing-title">${listing.val().title}</div>
+            <div class="listing-city">${listing.val().city}</div>
+            <div class="listing-weight">${listing.val().weight} lb</div>
+        </div>
+    `;
+}
+
+function removeListing() {
+
 }
 
 function showAllListings() {
@@ -139,7 +166,7 @@ function showMyListings() {
         myListings = snapshot.val();
         for (let i = 1; i < myListings.length; i++) {
             firebase.database().ref('/listings/' + myListings[i]).once('value').then(function(listing) {
-                addListingToPage(listing);
+                addMyListingsToPage(listing);
             });
         }
     });
@@ -154,7 +181,7 @@ function loadIndexPageLoggedIn() {
 }
 
 function loadProfilePage() {
-    document.body.innerHTML += header_logged_in_HTML + user_profile_HTML + profilePageTitle + listings_HTML + add_listing_HTML + show_info_HTML;
+    document.body.innerHTML += header_logged_in_HTML + user_profile_HTML + profilePageTitle + listings_HTML + add_listing_HTML + show_info_user_listing_HTML;
     addUserProfile();
 }
 
@@ -204,6 +231,20 @@ var show_info_HTML=`
         <div id="show-info-city"></div>
         <div id="show-info-name"></div>
         <a id="show-info-email"></a>
+        <span id="show-info-close" onclick="hideShowInfoModal();">close</span>
+    </div>
+</div>
+`;
+
+var show_info_user_listing_HTML=`
+<div id="show-info" class="container">
+    <div class="modal">
+        <div id="show-info-image"></div>
+        <div id="show-info-title"></div>
+        <div id="show-info-weight"></div>
+        <div id="show-info-city"></div>
+        <div id="listed-by">Listed by: You</div>
+        <span id="remove-listing" onclick="removeListing();">Remove Listing</span>
         <span id="show-info-close" onclick="hideShowInfoModal();">close</span>
     </div>
 </div>
