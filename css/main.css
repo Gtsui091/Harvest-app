@@ -112,7 +112,7 @@ a {
 }
 
 .listing-title {
-
+    margin: 10px;
 }
 
 .listing-city {
@@ -163,4 +163,12 @@ a {
 
 .description {
     font-size: 0.8em;
+}
+
+#add-listing-title, #add-listing-city, #add-listing-weight {
+    border-style:line;
+    /* background:lightgray; */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
 }
