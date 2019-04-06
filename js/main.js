@@ -287,7 +287,7 @@ var welcome_HTML = `
         <div id="index-join-div">
             <div id="index-join-content">
                 <h3>Produce to Barter connects like-minded gardeners with each other so that excess produce is not wasted. Find home-grown food in your city to trade today.</h3>
-                <button id="join-button" onclick="window.location.href='authentication.html';">Join now</button>
+                <button id="join-button" onclick="window.location.href='login.html';">Join now</button>
             </div>
         </div>
 
