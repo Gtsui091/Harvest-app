@@ -54,7 +54,7 @@ function addListingToDB() {
     if (document.getElementById('add-listing-image').files) {
         var image = document.getElementById('add-listing-image').files[0];
     }
-    var title = document.getElementById('add-listing-title').value;
+    var title = document.getElementById('add-listing-produce').value;
     var city = document.getElementById('add-listing-city').value;
     var weight = document.getElementById('add-listing-weight').value;
     if (!userID || !image || !title || !city || !weight) {return;}
@@ -223,12 +223,17 @@ var listings_HTML = `
 var add_listing_HTML = `
 <div id="add-listing" class="container">
     <div class="modal">
+        <h2 id="add-listing-title">Add Listing</h2>
+        <img id="add-listing-picture" src="images/insert_picture.png">
         <input id="add-listing-image" type="file">
-        <input id="add-listing-title" type="text" placeholder="title">
-        <input id="add-listing-city" type="text" placeholder="city">
-        <input id="add-listing-weight" type="text" placeholder="weight">
-        <input type="button" value="Submit" onclick="addListingToDB();">
-        <span id="add-listing-close" onclick="hideAddListingModal();">x</span>
+        <input id="add-listing-produce" type="text" placeholder="Produce Name"> 
+        </br>
+        <input id="add-listing-city" type="text" placeholder="City">
+        </br>
+        <input id="add-listing-weight" type="text" placeholder="Weight (lb)">
+        </br>
+        <input id="add-listing-submit" type="button" value="Submit" onclick="addListingToDB();">
+        <span id="add-listing-close" onclick="hideAddListingModal();">close</span>
     </div>  
 </div>
 `;

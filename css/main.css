@@ -147,7 +147,7 @@ a {
     color: blue;
 }
 
-#show-info-close {
+#show-info-close, #add-listing-close {
     float: right;
     position: relative;
     left: -7px;
@@ -165,10 +165,46 @@ a {
     font-size: 0.8em;
 }
 
-#add-listing-title, #add-listing-city, #add-listing-weight {
+#add-listing-produce, #add-listing-city, #add-listing-weight {
     border-style:line;
     /* background:lightgray; */
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 2px;
+    margin:0.3em 0.7em;
+}
+
+#add-listing {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    padding:0.2em;
+
+}
+
+#add-listing-picture {
+    height: 130px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin:0.5em;
+}
+
+#add-listing-title {
+    border-style: none;
+    position: relative;
+    left:33%;
+    top: 2%;
+}
+
+#add-listing-submit {
+cursor: pointer;
+color: blue;
+font-size: 0.9em;
+margin:0.5em 0.7em;
 }
