@@ -191,11 +191,12 @@ a {
     padding:1em;
 }
 
-#add-listing-picture {
-    height: 130px;
-    background-position: center;
-    background-size: cover;
+#add-listing-image-holder {
+    height: 175px;
+    background-image: url("../images/insert_picture.png");
+    background-size: contain;
     background-repeat: no-repeat;
+<<<<<<< HEAD
     margin:0.5em;
     position: relative;
     align-self: center;
@@ -210,6 +211,9 @@ a {
     position: relative;
     left:33%;
     top: 2%;
+=======
+    background-position: center;
+>>>>>>> 8f2c8c1a50101a0b757c3fa8a8e1c2038b280fbc
 }
 
 #add-listing-submit {
