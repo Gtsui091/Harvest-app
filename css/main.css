@@ -170,9 +170,8 @@ a {
     font-size: 0.8em;
 }
 
-#add-listing-produce, #add-listing-city, #add-listing-weight {
+#add-listing-image, #add-listing-produce, #add-listing-city, #add-listing-weight {
     border-style:line;
-    /* background:lightgray; */
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 2px;
@@ -196,30 +195,16 @@ a {
     background-image: url("../images/insert_picture.png");
     background-size: contain;
     background-repeat: no-repeat;
-    margin:0.5em;
-    position: relative;
-    align-self: center;
-}
-
-#add-listing-image {
-    padding-left: 0.em;
-}
-
-#add-listing-title {
-    border-style: none;
-    position: relative;
-    left:33%;
-    top: 2%;
+    background-position: center;
 }
 
 #add-listing-submit {
-cursor: pointer;
-color: blue;
-font-size: 0.9em;
-margin:0.5em 0.7em;
-position: relative;
-bottom: 0.3em;
-
+    cursor: pointer;
+    color: blue;
+    font-size: 0.9em;
+    margin:0.5em 0.7em;
+    position: relative;
+    bottom: 0.3em;
 }
 
 /* Landing Page */
