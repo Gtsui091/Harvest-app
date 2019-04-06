@@ -172,14 +172,12 @@ function showAllListings() {
 }
 
 function showMyListings() {
-    var myListings;
-    firebase.database().ref('/users/' + userID + '/listings').once('value').then(function(snapshot) {
-        myListings = snapshot.val();
-        for (let i = 1; i < myListings.length; i++) {
-            firebase.database().ref('/listings/' + myListings[i]).once('value').then(function(listing) {
-                addMyListingsToPage(listing);
+    firebase.database().ref('/users/' + userID + '/listings').on('child_added', function(listingID) {
+        if (listingID.val()) {
+            firebase.database().ref("listings/" + listingID.val()).once('value').then(function(listing) {
+                addMyListingsToPage(listing)
             });
-        }
+        } 
     });
 }
 
