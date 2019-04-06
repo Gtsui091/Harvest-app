@@ -78,6 +78,14 @@ function addListingToDB() {
     reader.readAsDataURL(image)
 }
 
+function updateImageHolder(event) {
+    let reader = new FileReader();
+    reader.onload = function(){
+        document.getElementById('add-listing-image-holder').style.backgroundImage = `url(${reader.result})`;
+        document.getElementById('add-listing-image-holder').style.backgroundSize = `cover`;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+}
 
 function addListingIdToUser(listingID) {
     firebase.database().ref('/users/' + userID + '/listings').once('value').then(function(snapshot) {
@@ -221,9 +229,8 @@ var listings_HTML = `
 var add_listing_HTML = `
 <div id="add-listing" class="container">
     <div class="modal">
-        <h2 id="add-listing-title">Add Listing</h2>
-        <img id="add-listing-picture" src="images/insert_picture.png">
-        <input id="add-listing-image" type="file">
+        <div id="add-listing-image-holder"></div>
+        <input id="add-listing-image" type="file" accept='image/*' onchange='updateImageHolder(event)'>
         <input id="add-listing-produce" type="text" placeholder="Produce Name"> 
         </br>
         <input id="add-listing-city" type="text" placeholder="City">

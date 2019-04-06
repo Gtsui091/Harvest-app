@@ -187,19 +187,12 @@ a {
 
 }
 
-#add-listing-picture {
-    height: 130px;
-    background-position: center;
-    background-size: cover;
+#add-listing-image-holder {
+    height: 175px;
+    background-image: url("../images/insert_picture.png");
+    background-size: contain;
     background-repeat: no-repeat;
-    margin:0.5em;
-}
-
-#add-listing-title {
-    border-style: none;
-    position: relative;
-    left:33%;
-    top: 2%;
+    background-position: center;
 }
 
 #add-listing-submit {
