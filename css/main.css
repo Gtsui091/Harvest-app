@@ -196,7 +196,6 @@ a {
     background-image: url("../images/insert_picture.png");
     background-size: contain;
     background-repeat: no-repeat;
-<<<<<<< HEAD
     margin:0.5em;
     position: relative;
     align-self: center;
@@ -211,9 +210,6 @@ a {
     position: relative;
     left:33%;
     top: 2%;
-=======
-    background-position: center;
->>>>>>> 8f2c8c1a50101a0b757c3fa8a8e1c2038b280fbc
 }
 
 #add-listing-submit {
@@ -296,10 +292,11 @@ bottom: 0.3em;
     border: 1px solid rgb(140, 182, 158);
     border-radius: 5px;
     padding: 5px;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     position: relative;
-    margin-left: 28em;
-    margin-top: 1em;
+    /* margin-left: 28em;
+    margin-top: 1em; */
 }
 
 #user-profile-name, #user-profile-email {
