@@ -227,11 +227,11 @@ a {
 }
 
 #join-button {
-    background-color: #93C5B9;
+    background-color: rgb(140, 182, 158);
     position: relative;
     left:150px;
     top: 100px;
-    width: 100px;
+    width: 140px;
     height: 50px;
     border-radius: 8px;
     /* font-family: 'coolveticaregular'; */
@@ -277,11 +277,12 @@ a {
     border: 1px solid rgb(140, 182, 158);
     border-radius: 5px;
     padding: 5px;
+    width: 300px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     position: relative;
-    /* margin-left: 28em;
-    margin-top: 1em; */
+    left: -21.3em;
+    top: 1em;
 }
 
 #user-profile-name, #user-profile-email {
