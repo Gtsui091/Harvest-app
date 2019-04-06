@@ -208,3 +208,68 @@ color: blue;
 font-size: 0.9em;
 margin:0.5em 0.7em;
 }
+
+/* Landing Page */
+#intro-index {
+    text-align: center;
+    color: white;
+    /* font-family: 'coolveticaregular'; */
+    font-size: 32px;
+}
+
+#index-join-div {
+    /* position: relative;
+    left: 200px;
+    width: 75%; */
+    margin: 0px 0px 0px 0px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+
+}
+
+#join-button {
+    background-color: #93C5B9;
+    position: relative;
+    left:150px;
+    top: 100px;
+    width: 100px;
+    height: 50px;
+    border-radius: 8px;
+    /* font-family: 'coolveticaregular'; */
+    font-size: 20px;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    line-height: 25px;
+    text-shadow: 1px 1px black;
+}
+#index-join-content {
+    margin:  0px 150px 0px 165px;
+    position: relative;
+    top: 100px;
+    font-size: 22px;
+    font-family: 'helvetica';
+}
+
+#how-it-works{
+    text-align: center;
+    color:white;
+    /* font-family:'coolveticaregular'; */
+    font-size: 42px;
+    margin: 0px 50px 20px 50px;
+    text-shadow: 0px 0 0;
+    position: relative;
+    top: 27px;
+    text-shadow: 1px 1px black;
+}
+
+#welcome {
+    width: 100%;
+    height: 91%;
+    background-image: url("../images/basket.jpg");
+    background-size: cover;
+    overflow: none;
+
+}
