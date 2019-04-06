@@ -330,9 +330,9 @@ var user_profile_HTML = `
 `;
 
 var indexPageTitle = `
-<div class = "page-title">
+<div class="page-title-container">
     <br>
-    <p>Market Place</p>
+    <p id="page-title">Market Place</p>
     <br>
     <p class="description">Browse fresh fruit and vegetables available for trade.</p>
     <br>
@@ -340,9 +340,9 @@ var indexPageTitle = `
 `;
 
 var profilePageTitle = `
-<div class = "page-title">
+<div class="page-title-container">
     <br>
-    <p>Your Listings</p>
+    <p id="page-title">Your Listings</p>
     <br>
     <p class="description">Manage produce you have listed in the Marketplace.</p>
     <br>
