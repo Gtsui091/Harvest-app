@@ -92,6 +92,7 @@ a {
     overflow: hidden;
 }
 
+/* LISTING DIVS */
 .listing {
     width: 275px;
     height: 275px;
@@ -170,6 +171,7 @@ a {
     font-size: 0.8em;
 }
 
+/* ADD LISTING MODAL WINDOW */
 #add-listing-image, #add-listing-produce, #add-listing-city, #add-listing-weight {
     border-style:line;
     box-sizing: border-box;
@@ -210,18 +212,14 @@ a {
     border: none;
 }
 
-/* Landing Page */
+/* LANDING PAGE */
 #intro-index {
     text-align: center;
     color: white;
-    /* font-family: 'coolveticaregular'; */
     font-size: 32px;
 }
 
 #index-join-div {
-    /* position: relative;
-    left: 200px;
-    width: 75%; */
     margin: 0px 0px 0px 0px;
     height: 400px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -237,7 +235,6 @@ a {
     width: 140px;
     height: 50px;
     border-radius: 8px;
-    /* font-family: 'coolveticaregular'; */
     font-size: 20px;
     text-align: center;
     display: inline-block;
@@ -257,7 +254,6 @@ a {
 #how-it-works{
     text-align: center;
     color:white;
-    /* font-family:'coolveticaregular'; */
     font-size: 42px;
     margin: 0px 50px 20px 50px;
     text-shadow: 0px 0 0;
@@ -275,6 +271,7 @@ a {
 
 }
 
+/* USER PROFILE */
 #user-profile {
     background-color: white;
     border: 1px solid rgb(140, 182, 158);
