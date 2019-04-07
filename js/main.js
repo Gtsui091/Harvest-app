@@ -232,11 +232,11 @@ var add_listing_HTML = `
         <div id="add-listing-image-holder"></div>
         <input id="add-listing-image" type="file" accept='image/*' onchange='updateImageHolder(event)'>
         <input id="add-listing-produce" type="text" placeholder="Produce Name"> 
-        </br>
+        <br>
         <input id="add-listing-city" type="text" placeholder="City">
-        </br>
+        <br>
         <input id="add-listing-weight" type="text" placeholder="Weight (lb)">
-        </br>
+        <br>
         <input id="add-listing-submit" type="button" value="Submit" onclick="addListingToDB();">
         <span id="add-listing-close" onclick="hideAddListingModal();">close</span>
     </div>  
