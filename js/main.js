@@ -11,6 +11,7 @@ firebase.initializeApp(config);
 var page = window.location.pathname.split("/").pop();
 var userID;
 
+// load content depending on whether the user is logged in or not
 firebase.auth().onAuthStateChanged(function(user){
     if (user) {
         userID = user.uid;
@@ -34,6 +35,7 @@ function logOut() {
     });
 }
 
+// add user to database if they are a new user
 function isUserInDB(user) {
     firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot) {
         if (!snapshot.val()) {
@@ -57,6 +59,7 @@ function addListingToDB() {
     var title = document.getElementById('add-listing-produce').value;
     var city = document.getElementById('add-listing-city').value;
     var weight = document.getElementById('add-listing-weight').value;
+    // if any information is missing, don't do anything
     if (!userID || !image || !title || !city || !weight) {return;}
 
     var reader = new FileReader();    
@@ -72,6 +75,7 @@ function addListingToDB() {
         var listingID = firebase.database().ref('listings/').push().key;
         firebase.database().ref('listings/' + listingID).update(listing);
         addListingIdToUser(listingID);
+        // close add listing modal window once completed
         hideAddListingModal();
     }, false);
 
@@ -87,6 +91,7 @@ function updateImageHolder(event) {
     reader.readAsDataURL(event.target.files[0]);
 }
 
+// when user adds new listing, add the unique listing ID to user branch of the database
 function addListingIdToUser(listingID) {
     firebase.database().ref('/users/' + userID + '/listings').once('value').then(function(snapshot) {
         var listings = snapshot.val();
@@ -107,15 +112,18 @@ function hideShowInfoModal() {
     document.getElementById('show-info').style.display = "none";
 }
 
+// modal window with information when user clicks on a listing in the Marketplace
 function displayShowInfoModal(listingID) {
     document.getElementById('show-info').style.display = "flex";
 
+    // get listing information from database
     firebase.database().ref('listings/' + listingID).once('value').then(function(listing) {
         document.getElementById('show-info-image').style.backgroundImage = `url(${listing.val().image})`;
         document.getElementById('show-info-title').innerHTML = listing.val().title;
         document.getElementById('show-info-city').innerHTML = listing.val().city;
         document.getElementById('show-info-weight').innerHTML = listing.val().weight + " lb";
-
+        
+        // get user information from database
         firebase.database().ref('users/' + listing.val().uid).once('value').then(function(user) {
             document.getElementById('show-info-name').innerHTML = "Listed by: " + user.val().name;
             document.getElementById('show-info-email').innerHTML = user.val().email;
@@ -124,6 +132,7 @@ function displayShowInfoModal(listingID) {
     });
 }
 
+// modal window with information when user clicks on a listing in "Your Listings" section of the porfile page
 function displayShowInfoMyListingModal(listingID) {
     document.getElementById('show-info').style.display = "flex";
 
@@ -136,6 +145,7 @@ function displayShowInfoMyListingModal(listingID) {
     });
 }
 
+// add div block to page containing one listing and its information (for Marketplace)
 function addListingToPage(listing) {
     document.getElementById("listings").innerHTML += `
         <div class="listing" id="${listing.key}" onclick="displayShowInfoModal(this.id)">
@@ -147,6 +157,7 @@ function addListingToPage(listing) {
     `;
 }
 
+// add div block to page containing one listing and its information (for profile page)
 function addMyListingsToPage(listing) {
     document.getElementById("listings").innerHTML += `
         <div class="listing" id="${listing.key}" onclick="displayShowInfoMyListingModal(this.id)">
@@ -173,12 +184,14 @@ function removeListing(listingID, uid) {
     });
 }
 
+// add each listing in database to page
 function showAllListings() {
     firebase.database().ref("listings/").on('child_added', function(listing) {    
         addListingToPage(listing);
     });
 }
 
+// add each listing listed by logged in user to page
 function showMyListings() {
     firebase.database().ref('/users/' + userID + '/listings').on('child_added', function(listingID) {
         if (listingID.val()) {
@@ -188,6 +201,8 @@ function showMyListings() {
         } 
     });
 }
+
+// load html elements based on whether a user is logged in and which page they are on
 
 function loadIndexPageNotLoggedIn() {
     document.body.innerHTML += header_not_logged_in_HTML + welcome_HTML;
@@ -212,6 +227,7 @@ function addUserProfile() {
 /////////////////////////////////////////////////////
 // COMMON HTML //////////////////////////////////////
 ////////////////////////////////////////////////////
+
 var header_not_logged_in_HTML = `
 <div id="header">
     <div class="wrapper">
@@ -226,6 +242,7 @@ var listings_HTML = `
 <div id="listings"></div>
 `;
 
+// html for add listing modal window
 var add_listing_HTML = `
 <div id="add-listing" class="container">
     <div class="modal">
@@ -243,6 +260,7 @@ var add_listing_HTML = `
 </div>
 `;
 
+// html for showing listing info modal window (for Marketplace)
 var show_info_HTML=`
 <div id="show-info" class="container">
     <div class="modal">
@@ -257,6 +275,7 @@ var show_info_HTML=`
 </div>
 `;
 
+// html for showing listing info modal window (for profile page)
 var show_info_user_listing_HTML=`
 <div id="show-info" class="container">
     <div class="modal">
@@ -283,6 +302,7 @@ var header_logged_in_HTML = `
 </div>
 `;
 
+// html for page when not logged in
 var welcome_HTML = `
 <div id="welcome">
     <main>
