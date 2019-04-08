@@ -311,28 +311,28 @@ var welcome_HTML = `
 
         <div id="index-join-div">
             <div id="index-join-content">
-                <h3>Produce to Barter connects like-minded gardeners with each other so that excess produce is not wasted. Find home-grown food in your city to trade today.</h3>
+                <h3>Harvest connects like-minded gardeners with each other so that excess produce is not wasted. Find home-grown food in your city to trade today.</h3>
                 <button id="join-button" onclick="window.location.href='login.html';">Join now</button>
             </div>
         </div>
 
         <div id="index-howto">
-            <div style="background-color: #ECC18B; height: 100px;">
+            <div id="index-howto-div">
             <div id="how-it-works">
                 How it works?</div>
             </div>
-            <div style="margin: 0px 15px 0px 50px; color:white; text-shadow: 1px 1px black; text-align: left;">
+            <div id="how-div"">
                 
-                <div style="position: relative; margin: 30px 0px; font-family: 'coolveticaregular'"><h1>Browse Listings</h1>
+                <div class="how-description"><h1>Browse Listings</h1>
                     <h3>Find listings for vegetables or fruits nearby.</h3>
                 </div>
                 
 
-                <div style="position: relative; margin: 30px 0px; font-family: 'coolveticaregular'; text-shadow: 1px 1px black;"><h1>Add Your Own Listings</h1>
+                <div class="how-description"><h1>Add Your Own Listings</h1>
                     <h3>Put up your own produce for others to see.</h3>
                 </div>
 
-                <div style="position: relative; margin: 0px 0px; font-family: 'coolveticaregular'; text-shadow: 1px 1px black;"><h1>Swap Produce</h1>
+                <div class="how-description"><h1>Swap Produce</h1>
                     <h3>When a trade is accepted, contact your match to swap items.</h3>
                 </div>
             </div>
