@@ -321,7 +321,7 @@ var welcome_HTML = `
             <div id="how-it-works">
                 How it works?</div>
             </div>
-            <div "how-div"">
+            <div id="how-div"">
                 
                 <div class="how-description"><h1>Browse Listings</h1>
                     <h3>Find listings for vegetables or fruits nearby.</h3>
